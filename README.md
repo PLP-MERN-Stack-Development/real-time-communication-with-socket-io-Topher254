@@ -1,77 +1,191 @@
-# Real-Time Chat Application with Socket.io
+#  Real-Time Chat Application with Socket.io- PLP week 5
 
-This assignment focuses on building a real-time chat application using Socket.io, implementing bidirectional communication between clients and server.
+A modern, feature-rich real-time chat application built with React, Node.js, and Socket.io. This application demonstrates bidirectional communication between clients and server with advanced chat features and real-time notifications.
 
-## Assignment Overview
 
-You will build a chat application with the following features:
-1. Real-time messaging using Socket.io
-2. User authentication and presence
-3. Multiple chat rooms or private messaging
-4. Real-time notifications
-5. Advanced features like typing indicators and read receipts
 
-## Project Structure
+##  Application Screenshots
 
-```
-socketio-chat/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # UI components
-│   │   ├── context/        # React context providers
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Page components
-│   │   ├── socket/         # Socket.io client setup
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Node.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Socket event handlers
-│   ├── models/             # Data models
-│   ├── socket/             # Socket.io server setup
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
-```
+### Homepage & Authentication
+![Homepage](./screenshots/Homepage.png)
+*Clean and modern login interface where users can enter their username to join the chat*
 
-## Getting Started
+### Chat Interface
+![General Chat Room](./screenshots/generalchatroom.png)
+*Main chat interface showing real-time messaging in the General room*
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week5-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+### Multiple Users Chat
+![Chat Room with Multiple Users](./screenshots/chatroom_diffrentusers.png)
+*Demonstration of multiple users chatting simultaneously in real-time*
 
-## Files Included
+### Room Management
+![Rooms Sidebar](./screenshots/rooms.png)
+*Sidebar showing available chat rooms and room switching functionality*
 
-- `Week5-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Socket.io configuration templates
-  - Sample components for the chat interface
+### User Presence
+![Online Users](./screenshots/users.png)
+*Online users list showing real-time presence indicators*
 
-## Requirements
+##  Features Implemented
+
+###  Core Features (Task 1 & 2)
+- **Real-time Messaging**: Instant message delivery using Socket.io
+- **User Authentication**: Simple username-based authentication
+- **Multiple Chat Rooms**: Pre-configured rooms (General, Random)
+- **Online Status**: Real-time user presence indicators
+- **Typing Indicators**: See when other users are typing
+- **Message Timestamps**: Display message sent times
+- **Responsive Design**: Works on desktop and mobile devices
+
+###  Advanced Features (Task 3)
+- **Private Messaging**: Direct messages between users
+- **Multiple Chat Rooms**: Switch between different rooms
+- **Typing Indicators**: Real-time typing notifications
+- **Message Reactions**: React to messages with emojis
+- **Read Receipts**: See when messages are read
+- **User Presence**: Live online/offline status updates
+
+###  Real-Time Notifications (Task 4)
+- **Browser Notifications**: Native browser notifications for new messages
+- **User Join/Leave Alerts**: Notifications when users enter/leave rooms
+- **Unread Message Count**: Track unread messages per room
+- **Sound Notifications**: Audio alerts for new messages
+- **Real-time Updates**: Instant notification delivery
+
+###  Performance & UX (Task 5)
+- **Auto-reconnection**: Handles connection drops gracefully
+- **Message History**: Persistent message history per room
+- **Optimized Socket.io**: Efficient room-based messaging
+- **Error Handling**: Comprehensive error states and loading indicators
+- **Mobile-First Design**: Responsive across all device sizes
+
+##  Technology Stack
+
+### Frontend
+- **React 18** - Modern React with hooks
+- **Vite** - Fast build tool and dev server
+- **Socket.io Client** - Real-time communication
+- **Lucide React** - Beautiful icons
+- **CSS3** - Custom responsive styling
+
+### Backend
+- **Node.js** - Runtime environment
+- **Express.js** - Web server framework
+- **Socket.io** - Real-time bidirectional communication
+- **CORS** - Cross-origin resource sharing
+- **UUID** - Unique identifier generation
+
+##  Prerequisites
 
 - Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Basic understanding of React and Express
+- npm or yarn package manager
+- Modern web browser with WebSocket support
 
-## Submission
+##  Quick Start
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### 1. Clone the Repository
+```bash
+git clone https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Topher254.git
+cd real-time-communication-with-socket-io
+```
 
-1. Complete both the client and server portions of the application
-2. Implement the core chat functionality
-3. Add at least 3 advanced features
-4. Document your setup process and features in the README.md
-5. Include screenshots or GIFs of your working application
-6. Optional: Deploy your application and add the URLs to your README.md
+### 2. Setup Backend Server
+```bash
+# Navigate to server directory
+cd server
 
-## Resources
+# Install dependencies
+npm install
 
-- [Socket.io Documentation](https://socket.io/docs/v4/)
-- [React Documentation](https://react.dev/)
-- [Express.js Documentation](https://expressjs.com/)
-- [Building a Chat Application with Socket.io](https://socket.io/get-started/chat) 
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Start development server
+npm run dev
+```
+Server will run on `http://localhost:3001`
+
+### 3. Setup Frontend Client
+```bash
+# Navigate to client directory (in new terminal)
+cd client
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your configuration
+
+# Start development server
+npm run dev
+```
+Client will run on `http://localhost:3000`
+
+## ⚙️ Configuration
+
+### Server Environment Variables (`server/.env`)
+```env
+NODE_ENV=development
+PORT=3001
+CLIENT_URL=http://localhost:3000
+JWT_SECRET=your-super-secret-key-here
+```
+
+### Client Environment Variables (`client/.env`)
+```env
+VITE_SERVER_URL=http://localhost:3001
+```
+
+##  Project Structure
+
+```
+socketio-chat-app/
+├── server/                 # Backend server
+│   ├── config/            # Configuration files
+│   ├── socket/            # Socket.io event handlers
+│   ├── routes/            # Express routes
+│   ├── middleware/        # Custom middleware
+│   └── server.js          # Main server file
+├── client/                # Frontend React app
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── context/       # React context providers
+│   │   ├── pages/         # Page components
+│   │   ├── hooks/         # Custom React hooks
+│   │   └── styles/        # CSS stylesheets
+│   └── public/            # Static assets
+├── screenshots/           # Application screenshots
+└── README.md              # Project documentation
+```
+
+## 🔌 API Endpoints
+
+### HTTP Routes
+- `GET /api/health` - Health check endpoint
+- `GET /api/stats` - Server statistics
+
+### Socket Events
+
+#### Client to Server
+- `join_room` - Join a chat room
+- `send_message` - Send a message to room
+- `typing_start` - Start typing indicator
+- `typing_stop` - Stop typing indicator
+- `react_to_message` - Add reaction to message
+- `mark_message_read` - Mark message as read
+- `send_private_message` - Send private message to user
+
+#### Server to Client
+- `new_message` - Receive new message
+- `user_connected` - User came online
+- `user_disconnected` - User went offline
+- `user_typing` - User started typing
+- `user_stop_typing` - User stopped typing
+- `notification` - Real-time notification
+- `room_joined` - Successfully joined room
+- `message_reacted` - Message reaction update
+
+## Author
+Sarota Raphael
