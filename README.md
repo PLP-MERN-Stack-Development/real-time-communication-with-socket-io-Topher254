@@ -141,7 +141,7 @@ VITE_SERVER_URL=http://localhost:3001
 ##  Project Structure
 
 ```
-socketio-chat-app/
+real-time-communication-with-socket-io/
 ├── server/                 # Backend server
 │   ├── config/            # Configuration files
 │   ├── socket/            # Socket.io event handlers
